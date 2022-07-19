@@ -1,0 +1,59 @@
+.header {
+  border-bottom: 1px solid #f6f6f6;
+  padding: 40px 0;
+  position: relative;
+
+  @media (max-width: 660px) {
+    padding-bottom: 0;
+  }
+
+  .input {
+    padding: 10px 20px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: border 0.2s ease-in-out;
+    position: absolute;
+    left: 500px;
+    &:focus {
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: 660px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &Logo {
+    display: flex;
+
+    img {
+      margin-right: 15px;
+    }
+
+    h1 {
+      color: #181818;
+      font-size: 24px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    p {
+      color: #7b7b7b;
+    }
+  }
+}

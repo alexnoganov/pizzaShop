@@ -1,0 +1,59 @@
+.sort {
+  position: relative;
+
+  .active svg{
+    transform: rotate(180deg);
+  }
+
+  &Label {
+    display: flex;
+    align-items: center;
+
+    svg {
+      transition: transform 0.2s ease-in-out;
+      margin-right: 8px;
+    }
+
+    b {
+      margin-right: 8px;
+    }
+
+    span {
+      color: #fe5f1e;
+      border-bottom: 1px dashed #fe5f1e;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  &Popup {
+    position: absolute;
+    right: 0;
+    margin-top: 15px;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 160px;
+
+    ul {
+      overflow: hidden;
+
+      li {
+        padding: 12px 20px;
+        cursor: pointer;
+
+        &.active,
+        &:hover {
+          background: rgba(254, 95, 30, 0.05);
+        }
+
+        &.active {
+          font-weight: bold;
+          color: #fe5f1e;
+        }
+      }
+    }
+  }
+}
