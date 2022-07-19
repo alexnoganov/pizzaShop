@@ -47,7 +47,7 @@ function CartItem({id, title, price, img, type, size, count}: ICartItems) {
                 </div>
             </div>
             <div className="cart__item-price">
-                <b>{price * count} ₽</b>
+                <b>{price * count} ₴</b>
             </div>
             <div className="cart__item-remove">
                 <div className="button button--outline button--circle"

@@ -57,7 +57,7 @@ const Card: FC<IItems> = ({id, imageUrl, title, types, sizes, price}) => {
                 </ul>
             </div>
             <div className={styles.pizzaBlockBottom}>
-                <div className={styles.pizzaBlockPrice}>от {price} ₽</div>
+                <div className={styles.pizzaBlockPrice}>от {price} ₴</div>
                 <div onClick={onItemClick}
                      className="button button--outline button--add">
                     <svg

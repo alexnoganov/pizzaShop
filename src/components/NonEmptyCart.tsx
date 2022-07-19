@@ -3,10 +3,19 @@ import CartItem from './CartItem';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../store/store';
+import {toast} from 'react-toastify';
+import axios from 'axios';
 
 function NonEmptyCart() {
-    const {items: cart, totalPrice} = useSelector<RootState,ICart>((state) => state.cart);
+    const {items: cart, totalPrice} = useSelector<RootState, ICart>((state) => state.cart);
     const dispatch = useDispatch();
+
+    const orderHandler = async () => {
+        await axios.post('https://629c9802e9358232f75d5dc3.mockapi.io/orders', cart);
+        dispatch(clearCart());
+        toast.success('Спасибо за заказ! Мы свяжемся с вами в скором времени');
+    };
+
     return (<>
         <div className="cart__top">
             <h2 className="content__title">
@@ -45,7 +54,7 @@ function NonEmptyCart() {
         <div className="cart__bottom">
             <div className="cart__bottom-details">
                 <span> Всего пицц: <b>{cart.reduce((sum, item) => sum + item.count, 0)} шт.</b> </span>
-                <span> Сумма заказа: <b>{totalPrice} ₽</b> </span>
+                <span> Сумма заказа: <b>{totalPrice} ₴</b> </span>
             </div>
             <div className="cart__bottom-buttons">
                 <Link to="/" className="button button--outline button--add go-back-btn">
@@ -56,8 +65,8 @@ function NonEmptyCart() {
                     </svg>
                     <span>Вернуться назад</span>
                 </Link>
-                <div className="button pay-btn">
-                    <span>Оплатить сейчас</span>
+                <div className="button pay-btn" onClick={orderHandler}>
+                    <span>Сделать заказ</span>
                 </div>
             </div>
         </div>
